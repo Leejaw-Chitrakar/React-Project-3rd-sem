@@ -1,201 +1,86 @@
 const studentData = [
     {
         id: 1,
-        name: "John Doe",
+        name: "Aman Shrestha",
         age: 20,
-        grade: "A",
-        rollno: 1,
-        status: "present"
+        course: "React.js",
+        grade: 92,
+        isPresent: true
     },
     {
         id: 2,
-        name: "Jane Doe",
+        name: "Bishal Thapa",
         age: 21,
-        grade: "B",
-        status: "absent"
+        course: "Node.js",
+        grade: 85,
+        isPresent: false
     },
     {
         id: 3,
-        name: "Bob Smith",
+        name: "Chaya Khatri",
         age: 22,
-        grade: "C",
-        status: "present"
+        course: "Python",
+        grade: 78,
+        isPresent: true
     },
     {
         id: 4,
-        name: "Alice Johnson",
+        name: "Deepa Gurung",
         age: 19,
-        grade: "B",
-        status: "present"
+        course: "React.js",
+        grade: 95,
+        isPresent: true
     },
     {
         id: 5,
-        name: "Charlie Davis",
+        name: "Elena Rai",
         age: 21,
-        grade: "A",
-        status: "absent"
+        course: "UI/UX Design",
+        grade: 88,
+        isPresent: false
     },
     {
         id: 6,
-        name: "Diana Prince",
-        age: 22,
-        grade: "B",
-        status: "present"
+        name: "Farhan Ali",
+        age: 23,
+        course: "Node.js",
+        grade: 82,
+        isPresent: true
     },
     {
         id: 7,
-        name: "Edward Norton",
+        name: "Gita Sharma",
         age: 20,
-        grade: "C",
-        status: "present"
+        course: "Python",
+        grade: 90,
+        isPresent: true
     },
     {
         id: 8,
-        name: "Fiona Gallagher",
-        age: 23,
-        grade: "A",
-        status: "absent"
+        name: "Hari Prasad",
+        age: 22,
+        course: "React.js",
+        grade: 75,
+        isPresent: false
     },
-    // {
-    //     id: 9,
-    //     name: "George Miller",
-    //     age: 19,
-    //     grade: "B",
-    //     status: "present"
-    // },
-    // {
-    //     id: 10,
-    //     name: "Hannah Abbott",
-    //     age: 21,
-    //     grade: "C",
-    //     status: "present"
-    // },
-    // {
-    //     id: 11,
-    //     name: "Ian Wright",
-    //     age: 22,
-    //     grade: "B",
-    //     status: "absent"
-    // },
-    // {
-    //     id: 12,
-    //     name: "Julia Roberts",
-    //     age: 20,
-    //     grade: "A",
-    //     status: "present"
-    // },
-    // {
-    //     id: 13,
-    //     name: "Kevin Hart",
-    //     age: 24,
-    //     grade: "D",
-    //     status: "present"
-    // },
-    // {
-    //     id: 14,
-    //     name: "Laura Palmer",
-    //     age: 19,
-    //     grade: "B",
-    //     status: "absent"
-    // },
-    // {
-    //     id: 15,
-    //     name: "Michael Scott",
-    //     age: 21,
-    //     grade: "C",
-    //     status: "present"
-    // },
-    // {
-    //     id: 16,
-    //     name: "Nina Simone",
-    //     age: 23,
-    //     grade: "A",
-    //     status: "present"
-    // },
-    // {
-    //     id: 17,
-    //     name: "Oscar Wilde",
-    //     age: 22,
-    //     grade: "B",
-    //     status: "absent"
-    // },
-    // {
-    //     id: 18,
-    //     name: "Peter Parker",
-    //     age: 18,
-    //     grade: "A",
-    //     status: "present"
-    // },
-    // {
-    //     id: 19,
-    //     name: "Quinn Fabray",
-    //     age: 20,
-    //     grade: "C",
-    //     status: "present"
-    // },
-    // {
-    //     id: 20,
-    //     name: "Riley Reid",
-    //     age: 21,
-    //     grade: "B",
-    //     status: "absent"
-    // },
-    // {
-    //     id: 21,
-    //     name: "Sarah Connor",
-    //     age: 22,
-    //     grade: "A",
-    //     status: "present"
-    // },
-    // {
-    //     id: 22,
-    //     name: "Thomas Shelby",
-    //     age: 24,
-    //     grade: "C",
-    //     status: "present"
-    // },
-    // {
-    //     id: 23,
-    //     name: "Ursula Corbero",
-    //     age: 20,
-    //     grade: "B",
-    //     status: "absent"
-    // },
-    // {
-    //     id: 24,
-    //     name: "Victor Stone",
-    //     age: 19,
-    //     grade: "A",
-    //     status: "present"
-    // },
-    // {
-    //     id: 25,
-    //     name: "Wanda Maximoff",
-    //     age: 21,
-    //     grade: "B",
-    //     status: "present"
-    // },
-    // {
-    //     id: 26,
-    //     name: "Xavier Renegade",
-    //     age: 23,
-    //     grade: "D",
-    //     status: "absent"
-    // },
-    // {
-    //     id: 27,
-    //     name: "Yara Greyjoy",
-    //     age: 22,
-    //     grade: "C",
-    //     status: "present"
-    // },
-    // {
-    //     id: 28,
-    //     name: "Zane Truesdale",
-    //     age: 20,
-    //     grade: "A",
-    //     status: "present"
-    // }
-]
+    {
+        id: 9,
+        name: "Ishani Joshi",
+        age: 21,
+        course: "UI/UX Design",
+        grade: 89,
+        isPresent: true
+    },
+    {
+        id: 10,
+        name: "Jiten Tamang",
+        age: 24,
+        course: "Node.js",
+        grade: 81,
+        isPresent: false
+    }
+];
+
+
 
 export default studentData;

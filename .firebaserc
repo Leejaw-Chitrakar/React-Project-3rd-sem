@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "lc-studentmanagementsys"
+  },
+  "targets": {
+    "lc-studentmanagementsys": {
+      "hosting": {
+        "lc-studentmanagementsys": {
+          "site": "lc-studentmanagementsys",
+          "targetIds": [
+            "lc-studentmanagementsys"
+          ]
+        }
+      }
+    }
+  }
+}

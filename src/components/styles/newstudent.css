@@ -1,0 +1,59 @@
+.new-student-card {
+  background-color: var(--card-bg);
+  padding: var(--spacing-lg);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.new-student-card h2 {
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.form-actions {
+  margin-top: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.checkbox-group label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+  cursor: pointer;
+}
+
+/* Mobile: stack form to single column */
+@media (max-width: 600px) {
+  .new-student-card {
+    padding: var(--spacing-md);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+}
