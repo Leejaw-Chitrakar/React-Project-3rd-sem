@@ -1,114 +1,74 @@
-/* ─── New Student Form Card ─── */
 .new-student-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-default);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
-  max-width: 640px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  max-width: 620px;
   margin: 0 auto;
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: var(--shadow-lg), 0 0 32px var(--accent-glow);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Shimmer accent top bar */
-.new-student-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--accent-primary), #a78bfa, var(--accent-secondary));
 }
 
 .new-student-card h2 {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: var(--space-6);
-  color: var(--text-primary);
+  margin-bottom: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-2);
+  gap: 8px;
 }
 
 .form-icon {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
-/* ─── Form Grid ─── */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-4);
-  margin-bottom: var(--space-5);
+  gap: 14px;
+  margin-bottom: 16px;
 }
 
-/* ─── Checkbox Group ─── */
 .checkbox-group {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-5);
-  padding: var(--space-3) var(--space-4);
-  background: var(--bg-glass);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
+  gap: 10px;
+  margin-bottom: 18px;
+  padding: 10px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: background var(--duration-base) var(--ease), border-color var(--duration-base) var(--ease);
-  user-select: none;
-}
-
-.checkbox-group:has(input:checked) {
-  background: rgba(16, 185, 129, 0.08);
-  border-color: rgba(16, 185, 129, 0.3);
-}
-
-.checkbox-group:hover {
-  background: var(--bg-glass-hover);
 }
 
 .checkbox-group input[type="checkbox"] {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 15px;
+  height: 15px;
   cursor: pointer;
-  accent-color: var(--success);
+  accent-color: var(--accent);
   flex-shrink: 0;
 }
 
 .checkbox-group label {
-  font-size: 0.88rem;
+  font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   cursor: pointer;
-  transition: color var(--duration-fast) var(--ease);
 }
 
-.checkbox-group:has(input:checked) label {
-  color: var(--success);
-}
-
-/* ─── Form Actions ─── */
 .form-actions {
   display: flex;
   justify-content: center;
 }
 
 .form-actions .btn {
-  min-width: 200px;
-  padding: 0.7rem 2rem;
-  font-size: 0.9rem;
+  min-width: 180px;
+  padding: 9px 24px;
 }
 
-/* ─── Responsive ─── */
 @media (max-width: 600px) {
   .new-student-card {
-    padding: var(--space-5) var(--space-4);
-    border-radius: var(--radius-lg);
+    padding: 18px 14px;
   }
 
   .form-grid {

@@ -1,226 +1,158 @@
-/* ─── Student List Container ─── */
-.student-list-container {
-  animation: fadeInUp var(--duration-slow) var(--ease) 0.1s both;
-}
-
-/* ─── Summary Row ─── */
-.list-summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: var(--space-5);
-  flex-wrap: wrap;
-  gap: var(--space-3);
-}
-
-.list-summary-text {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 500;
-}
-
-.list-summary-text span {
-  color: var(--text-secondary);
-  font-weight: 600;
-}
-
 /* ─── Toolbar ─── */
 .toolbar {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: var(--space-3);
-  margin-bottom: var(--space-6);
-  background: var(--bg-surface);
-  padding: var(--space-4);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  gap: 12px;
+  margin-bottom: 20px;
+  background: var(--surface);
+  padding: 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
 }
 
 .toolbar-group {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 5px;
 }
 
-/* Remove bottom margin from Input inside toolbar */
 .toolbar-group .input-group {
   margin-bottom: 0;
 }
 
-/* ─── Toolbar Select ─── */
-.toolbar-select option {
-  background-color: #1a1a2e;
-  color: var(--text-primary);
-}
-
-.toolbar-select option:checked,
-.toolbar-select option:hover {
-  background-color: var(--accent-primary);
-  color: #fff;
-}
-
 .toolbar-select {
   width: 100%;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border-subtle);
-  background: var(--bg-input);
-  color: var(--text-primary);
-  font-family: var(--font);
-  font-size: 0.9rem;
-  font-weight: 400;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.875rem;
   cursor: pointer;
   outline: none;
-  transition:
-    border-color var(--duration-base) var(--ease),
-    box-shadow var(--duration-base) var(--ease);
-  -webkit-appearance: none;
+  transition: border-color 0.15s;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6485' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
-  padding-right: 2rem;
+  padding-right: 28px;
+}
+
+.toolbar-select option {
+  background: #1c1c1c;
+  color: var(--text);
 }
 
 .toolbar-select:focus {
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  border-color: var(--accent);
 }
 
-.toolbar-select:hover {
-  border-color: var(--border-default);
+/* ─── Summary ─── */
+.list-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
 
-/* ─── Student Grid ─── */
+.list-summary-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.list-summary-text span {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* ─── Grid ─── */
 .student-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: var(--space-5);
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+  gap: 16px;
 }
 
-/* ─── Student Card ─── */
+/* ─── Card ─── */
 .student-card {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 4px 20px 4px 20px;
-  padding: var(--space-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-  position: relative;
-  overflow: hidden;
-  transition:
-    transform var(--duration-base) var(--ease),
-    box-shadow var(--duration-base) var(--ease),
-    border-color var(--duration-base) var(--ease);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  animation: fadeInUp var(--duration-slow) var(--ease) both;
-}
-
-/* Subtle gradient top accent */
-.student-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-  opacity: 0;
-  transition: opacity var(--duration-base) var(--ease);
+  gap: 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 .student-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), var(--shadow-glow);
-  border-color: var(--border-default);
+  border-color: #444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.student-card:hover::before {
-  opacity: 1;
-}
-
-/* ─── Top Performer Card ─── */
 .student-card.top-performer {
-  border-color: rgba(251, 191, 36, 0.25);
-  box-shadow: var(--shadow-card), 0 0 20px rgba(251, 191, 36, 0.08);
+  border-color: rgba(245, 158, 11, 0.35);
 }
 
-.student-card.top-performer::before {
-  background: linear-gradient(90deg, transparent, var(--star), transparent);
-  opacity: 0.6;
-}
-
-.student-card.top-performer:hover {
-  border-color: rgba(251, 191, 36, 0.5);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(251, 191, 36, 0.15);
-}
-
-/* ─── Top Performer Corner Badge ─── */
 .top-performer-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  color: #1a1000;
-  padding: 3px 8px;
-  border-radius: var(--radius-full);
-  font-size: 0.65rem;
-  font-weight: 800;
-  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--warning-bg);
+  color: var(--warning);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  box-shadow: 0 2px 8px rgba(251, 191, 36, 0.4);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  width: fit-content;
+  margin-bottom: -4px;
 }
 
 /* ─── Avatar ─── */
 .student-avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--accent-muted);
+  color: #a78bfa;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: white;
   flex-shrink: 0;
-  box-shadow: 0 2px 8px var(--accent-glow);
-  letter-spacing: -0.01em;
+  border: 1px solid rgba(124, 58, 237, 0.25);
 }
 
-/* ─── Student Info ─── */
 .student-header {
   display: flex;
   align-items: center;
-  gap: var(--space-3);
+  gap: 12px;
 }
 
 .student-name-block h3 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.95rem;
+  font-weight: 600;
   margin-bottom: 2px;
-  color: var(--text-primary);
 }
 
 .student-name-block .student-id {
   font-size: 0.72rem;
   color: var(--text-muted);
-  font-weight: 500;
 }
 
+/* ─── Meta grid ─── */
 .student-meta {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-2) var(--space-3);
-  padding: var(--space-3);
-  background: var(--bg-glass);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
+  gap: 8px 12px;
+  padding: 12px;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
 }
 
 .meta-item {
@@ -232,18 +164,17 @@
 .meta-label {
   font-size: 0.68rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .meta-value {
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
 }
 
-/* Grade color variation */
 .meta-value.grade-high {
   color: var(--success);
 }
@@ -256,56 +187,51 @@
   color: #f87171;
 }
 
-/* ─── Badges row ─── */
 .badge-row {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2);
-  align-items: center;
+  gap: 6px;
 }
 
 /* ─── Card Actions ─── */
 .card-actions {
   display: flex;
-  gap: var(--space-2);
+  gap: 8px;
   margin-top: auto;
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--border-subtle);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
 }
 
 .card-actions .btn {
   flex: 1;
-  font-size: 0.8rem;
-  padding: 0.45rem 0.75rem;
+  font-size: 0.78rem;
+  padding: 6px 10px;
 }
 
 /* ─── Empty State ─── */
 .empty-state {
   text-align: center;
-  padding: var(--space-12) var(--space-8);
-  background: var(--bg-surface);
-  border-radius: var(--radius-xl);
-  border: 1.5px dashed var(--border-default);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 60px 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
 }
 
 .empty-icon {
-  font-size: 3rem;
-  margin-bottom: var(--space-4);
+  font-size: 2.2rem;
   display: block;
+  margin-bottom: 12px;
   opacity: 0.5;
 }
 
 .empty-state h3 {
-  color: var(--text-secondary);
-  margin-bottom: var(--space-2);
-  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-size: 1rem;
 }
 
 .empty-state p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
+  font-size: 0.875rem;
 }
 
 /* ─── Responsive ─── */
@@ -318,7 +244,6 @@
 @media (max-width: 600px) {
   .toolbar {
     grid-template-columns: 1fr;
-    padding: var(--space-3);
   }
 
   .student-grid {

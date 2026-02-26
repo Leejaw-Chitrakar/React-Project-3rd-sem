@@ -1,81 +1,44 @@
-/* ─── Input Component ─── */
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  gap: 5px;
   width: 100%;
 }
 
 .input-label {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--text-secondary);
-  letter-spacing: 0.03em;
+  color: var(--text-muted);
   text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .input-field {
   width: 100%;
-  padding: 0.6rem 0.9rem;
-  border-radius: var(--radius-md);
-  border: 1.5px solid var(--border-subtle);
-  background: var(--bg-input);
-  color: var(--text-primary);
-  font-family: var(--font);
-  font-size: 0.9rem;
-  font-weight: 400;
-  transition:
-    border-color var(--duration-base) var(--ease),
-    background var(--duration-base) var(--ease),
-    box-shadow var(--duration-base) var(--ease);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.875rem;
   outline: none;
-  -webkit-appearance: none;
+  transition: border-color 0.15s;
 }
 
 .input-field::placeholder {
-  color: var(--text-muted);
-}
-
-.input-field:hover:not(:disabled) {
-  border-color: var(--border-default);
-  background: rgba(255, 255, 255, 0.08);
+  color: #555;
 }
 
 .input-field:focus {
-  border-color: var(--border-focus);
-  background: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  border-color: var(--accent);
 }
 
 .input-field.input-error {
-  border-color: var(--danger);
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
-}
-
-.input-field.input-error:focus {
   border-color: var(--danger);
 }
 
 .error-text {
   font-size: 0.75rem;
-  font-weight: 500;
   color: #f87171;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.error-text::before {
-  content: '!';
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 14px;
-  height: 14px;
-  background: var(--danger);
-  color: white;
-  border-radius: 50%;
-  font-size: 0.65rem;
-  font-weight: 800;
-  flex-shrink: 0;
 }
