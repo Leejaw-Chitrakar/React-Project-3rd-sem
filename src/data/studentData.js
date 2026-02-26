@@ -1,7 +1,7 @@
 const studentData = [
     {
         id: 1,
-        name: "Aman Shrestha",
+        name: "Aarav Shrestha",
         age: 20,
         course: "React.js",
         grade: 92,
@@ -9,7 +9,7 @@ const studentData = [
     },
     {
         id: 2,
-        name: "Bishal Thapa",
+        name: "Bibek Thapa",
         age: 21,
         course: "Node.js",
         grade: 85,
@@ -17,7 +17,7 @@ const studentData = [
     },
     {
         id: 3,
-        name: "Chaya Khatri",
+        name: "Chanda Maharjan",
         age: 22,
         course: "Python",
         grade: 78,
@@ -25,7 +25,7 @@ const studentData = [
     },
     {
         id: 4,
-        name: "Deepa Gurung",
+        name: "Dipika Gurung",
         age: 19,
         course: "React.js",
         grade: 95,
@@ -33,7 +33,7 @@ const studentData = [
     },
     {
         id: 5,
-        name: "Elena Rai",
+        name: "Elina Rai",
         age: 21,
         course: "UI/UX Design",
         grade: 88,
@@ -41,7 +41,7 @@ const studentData = [
     },
     {
         id: 6,
-        name: "Farhan Ali",
+        name: "Firoz Ansari",
         age: 23,
         course: "Node.js",
         grade: 82,
@@ -49,7 +49,7 @@ const studentData = [
     },
     {
         id: 7,
-        name: "Gita Sharma",
+        name: "Gita Tamang",
         age: 20,
         course: "Python",
         grade: 90,
@@ -57,7 +57,7 @@ const studentData = [
     },
     {
         id: 8,
-        name: "Hari Prasad",
+        name: "Hari Prasad Koirala",
         age: 22,
         course: "React.js",
         grade: 75,
@@ -65,7 +65,7 @@ const studentData = [
     },
     {
         id: 9,
-        name: "Ishani Joshi",
+        name: "Ishwori Joshi",
         age: 21,
         course: "UI/UX Design",
         grade: 89,
@@ -73,7 +73,7 @@ const studentData = [
     },
     {
         id: 10,
-        name: "Jiten Tamang",
+        name: "Jeevan Karki",
         age: 24,
         course: "Node.js",
         grade: 81,

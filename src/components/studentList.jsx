@@ -17,10 +17,10 @@ const StudentList = ({ students, onStatusChange, onDelete }) => {
     const filteredStudents = students.filter(std => {
         const matchesSearch = std.name.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesCourse = filterCourse === "All" || std.course === filterCourse;
-        const matchesStatus = filterStatus === "All" || 
-            (filterStatus === "Present" && std.isPresent) || 
+        const matchesStatus = filterStatus === "All" ||
+            (filterStatus === "Present" && std.isPresent) ||
             (filterStatus === "Absent" && !std.isPresent);
-        
+
         return matchesSearch && matchesCourse && matchesStatus;
     }).sort((a, b) => {
         if (sortBy === "name") return a.name.localeCompare(b.name);
@@ -28,8 +28,21 @@ const StudentList = ({ students, onStatusChange, onDelete }) => {
         return 0;
     });
 
+    // Get initials for avatar
+    const getInitials = (name) => {
+        return name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2);
+    };
+
+    // Grade color class
+    const gradeClass = (grade) => {
+        if (grade >= 90) return 'grade-high';
+        if (grade >= 75) return 'grade-mid';
+        return 'grade-low';
+    };
+
     return (
         <div className="student-list-container">
+            {/* Toolbar */}
             <div className="toolbar">
                 <div className="toolbar-group">
                     <Input
@@ -41,7 +54,7 @@ const StudentList = ({ students, onStatusChange, onDelete }) => {
                 </div>
                 <div className="toolbar-group">
                     <label className="input-label">Filter by Course</label>
-                    <select 
+                    <select
                         className="toolbar-select"
                         value={filterCourse}
                         onChange={(e) => setFilterCourse(e.target.value)}
@@ -51,7 +64,7 @@ const StudentList = ({ students, onStatusChange, onDelete }) => {
                 </div>
                 <div className="toolbar-group">
                     <label className="input-label">Filter by Status</label>
-                    <select 
+                    <select
                         className="toolbar-select"
                         value={filterStatus}
                         onChange={(e) => setFilterStatus(e.target.value)}
@@ -63,7 +76,7 @@ const StudentList = ({ students, onStatusChange, onDelete }) => {
                 </div>
                 <div className="toolbar-group">
                     <label className="input-label">Sort By</label>
-                    <select 
+                    <select
                         className="toolbar-select"
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
@@ -74,47 +87,82 @@ const StudentList = ({ students, onStatusChange, onDelete }) => {
                 </div>
             </div>
 
+            {/* Summary */}
+            <div className="list-summary">
+                <span className="list-summary-text">
+                    Showing <span>{filteredStudents.length}</span> of <span>{students.length}</span> students
+                </span>
+            </div>
+
             {filteredStudents.length === 0 ? (
                 <div className="empty-state">
+                    <span className="empty-icon">🔍</span>
                     <h3>No students found</h3>
                     <p>Try adjusting your search or filters.</p>
                 </div>
             ) : (
                 <div className="student-grid">
                     {filteredStudents.map((std) => (
-                        <div 
-                            key={std.id} 
+                        <div
+                            key={std.id}
                             className={`student-card ${std.grade >= 90 ? 'top-performer' : ''}`}
                         >
-                            {std.grade >= 90 && <div className="top-performer-badge">Star</div>}
-                            
-                            <div className="student-info">
-                                <h3>{std.name}</h3>
-                                <p><strong>ID:</strong> {std.id}</p>
-                                <p><strong>Course:</strong> {std.course}</p>
-                                <p><strong>Age:</strong> {std.age}</p>
-                                <p><strong>Grade:</strong> {std.grade}</p>
-                                <div style={{marginTop: '8px'}}>
-                                    <Badge type={std.isPresent ? "success" : "danger"}>
-                                        {std.isPresent ? "Present" : "Absent"}
-                                    </Badge>
-                                    {std.grade >= 90 && (
-                                        <Badge type="warning" style={{marginLeft: '8px'}}>
-                                            Top Performer
-                                        </Badge>
-                                    )}
+                            {std.grade >= 90 && <div className="top-performer-badge">⭐ Star</div>}
+
+                            {/* Card Header */}
+                            <div className="student-header">
+                                <div className="student-avatar">
+                                    {getInitials(std.name)}
+                                </div>
+                                <div className="student-name-block">
+                                    <h3>{std.name}</h3>
+                                    <span className="student-id">ID #{std.id}</span>
                                 </div>
                             </div>
-                            
+
+                            {/* Meta grid */}
+                            <div className="student-meta">
+                                <div className="meta-item">
+                                    <span className="meta-label">Course</span>
+                                    <span className="meta-value">{std.course}</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Age</span>
+                                    <span className="meta-value">{std.age}</span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Grade</span>
+                                    <span className={`meta-value ${gradeClass(std.grade)}`}>
+                                        {std.grade}%
+                                    </span>
+                                </div>
+                                <div className="meta-item">
+                                    <span className="meta-label">Status</span>
+                                    <span className="meta-value">
+                                        <Badge type={std.isPresent ? "success" : "danger"}>
+                                            {std.isPresent ? "Present" : "Absent"}
+                                        </Badge>
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Extra badges */}
+                            {std.grade >= 90 && (
+                                <div className="badge-row">
+                                    <Badge type="warning">Top Performer</Badge>
+                                </div>
+                            )}
+
+                            {/* Actions */}
                             <div className="card-actions">
-                                <Button 
-                                    variant="outline" 
+                                <Button
+                                    variant="outline"
                                     onClick={() => onStatusChange(std.id)}
                                 >
-                                    Toggle status
+                                    Toggle Status
                                 </Button>
-                                <Button 
-                                    variant="danger" 
+                                <Button
+                                    variant="danger"
                                     onClick={() => onDelete(std.id)}
                                 >
                                     Remove

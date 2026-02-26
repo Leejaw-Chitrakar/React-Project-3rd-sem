@@ -20,7 +20,7 @@ const NewStudent = ({ onAddStudent }) => {
             ...formData,
             [name]: type === "checkbox" ? checked : value
         });
-        
+
         // Clear error when user types
         if (errors[name]) {
             setErrors({ ...errors, [name]: "" });
@@ -33,14 +33,14 @@ const NewStudent = ({ onAddStudent }) => {
         if (!formData.age) newErrors.age = "Age is required";
         if (!formData.course.trim()) newErrors.course = "Course is required";
         if (!formData.grade) newErrors.grade = "Grade is required";
-        
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        
+
         if (!validate()) return;
 
         onAddStudent({
@@ -63,7 +63,10 @@ const NewStudent = ({ onAddStudent }) => {
 
     return (
         <div className="new-student-card">
-            <h2>Add New Student</h2>
+            <h2>
+                <span className="form-icon">🎓</span>
+                Add New Student
+            </h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-grid">
                     <Input
@@ -109,7 +112,7 @@ const NewStudent = ({ onAddStudent }) => {
                         required
                     />
                 </div>
-                
+
                 <div className="checkbox-group">
                     <input
                         type="checkbox"
@@ -120,7 +123,7 @@ const NewStudent = ({ onAddStudent }) => {
                     />
                     <label htmlFor="isPresent">Mark as Present</label>
                 </div>
-                
+
                 <div className="form-actions">
                     <Button type="submit" variant="primary">
                         Add Student to Directory

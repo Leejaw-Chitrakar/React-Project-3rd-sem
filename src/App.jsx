@@ -39,24 +39,46 @@ function App() {
     ));
   };
 
+  const presentCount = students.filter(s => s.isPresent).length;
+  const absentCount  = students.length - presentCount;
+
   return (
     <div className="container">
-      <header className="header">
+      <header className="app-header">
+        <div className="app-header-eyebrow">
+          ✦ Academic Dashboard
+        </div>
         <h1>Student Management System</h1>
         <p>Manage and track interactive student records with ease.</p>
       </header>
+
+      {/* Quick stats */}
+      <div className="stats-bar">
+        <div className="stat-chip">
+          <span className="dot purple"></span>
+          {students.length} Total
+        </div>
+        <div className="stat-chip">
+          <span className="dot green"></span>
+          {presentCount} Present
+        </div>
+        <div className="stat-chip">
+          <span className="dot red"></span>
+          {absentCount} Absent
+        </div>
+      </div>
       
-      <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '1rem' }}>
+      <div className="app-actions">
         <Button 
           variant={showAddForm ? "outline" : "primary"} 
           onClick={() => setShowAddForm(!showAddForm)}
         >
-          {showAddForm ? "Close Form" : "Add New Student"}
+          {showAddForm ? "✕  Close Form" : "+ Add New Student"}
         </Button>
       </div>
 
       {showAddForm && (
-        <div style={{ marginBottom: '2rem' }}>
+        <div className="add-form-wrapper">
           <NewStudent onAddStudent={handleAddStudent} />
         </div>
       )}
